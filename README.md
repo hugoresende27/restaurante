@@ -29,7 +29,7 @@
     6. app/Providers/RouteServiceProvider.php public const HOME = '/';
     7. Em routes/web.php Route::get("/", [HomeController::class, "index" ]) e remover Route com return 'welcome';
 
-/////////////////////////////////////
+- /////////////////////////////////////
 7. adicionar admin com usertype = 1
 8. Em routeServicePorvider.php : public const HOME = 'redirects'; 
 9. Em routes/web.php : Route::get("/redirects", [HomeController::class, "redirects" ]);
