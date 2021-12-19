@@ -20,3 +20,7 @@ Route::get('/', function () {
 
 //quando escrevo /home na URL, vai para HomeController função index
 Route::get("/home", [HomeController::class, "index" ]);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

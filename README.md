@@ -21,3 +21,9 @@
 - ////////////////////////////////////////////////////////
 6. CRIAR SISTEMA DE LOGIN E REGISTO (cmd)
     1. composer require laravel/jetstream
+    2. php artisan jetstream:install livewire (Jetstream para implementação de login)
+    3. npm install
+    4. npm run dev
+        1. database/migrations/**create_users_table.php adicionar $table->string('usertype')->default(0);
+    5. php artisan migrate (depois de criada a db no phpmyadmin, este comando vai criar todas as tabelas e campos da DB)
+    6. app/Providers/RouteServiceProvider.php public const HOME = '/home';
