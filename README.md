@@ -26,4 +26,11 @@
     4. npm run dev
         1. database/migrations/**create_users_table.php adicionar $table->string('usertype')->default(0);
     5. php artisan migrate (depois de criada a db no phpmyadmin, este comando vai criar todas as tabelas e campos da DB)
-    6. app/Providers/RouteServiceProvider.php public const HOME = '/home';
+    6. app/Providers/RouteServiceProvider.php public const HOME = '/';
+    7. Em routes/web.php Route::get("/", [HomeController::class, "index" ]) e remover Route com return 'welcome';
+
+/////////////////////////////////////
+8. adicionar admin com usertype = 1
+9. Em routeServicePorvider.php : public const HOME = 'redirects'; 
+10. Em routes/web.php : Route::get("/redirects", [HomeController::class, "redirects" ]);
+11. Adicionar função e biblioteca em HomeController.php

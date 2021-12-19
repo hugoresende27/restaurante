@@ -14,12 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 //quando escrevo /home na URL, vai para HomeController função index
-Route::get("/home", [HomeController::class, "index" ]);
+Route::get("/", [HomeController::class, "index" ]);
+Route::get("/redirects", [HomeController::class, "redirects" ]);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
