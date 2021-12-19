@@ -19,4 +19,6 @@
             return view ("home");
         }
 - ////////////////////////////////////////////////////////
-6. 
+6. CRIAR SISTEMA DE LOGIN E REGISTO
+-cmd
+ 1. composer require laravel/jetstream
