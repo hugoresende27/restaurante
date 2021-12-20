@@ -34,3 +34,4 @@
 8. Em routeServicePorvider.php : public const HOME = 'redirects'; 
 9. Em routes/web.php : Route::get("/redirects", [HomeController::class, "redirects" ]);
 10. Adicionar função e biblioteca em HomeController.php
+11. Criar pasta admin em views, ficheiro adminhome.blade.php,adminscss e adminscripts com bootstrap dashboard template, @include("admin.***");

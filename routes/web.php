@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,13 @@ use Illuminate\Support\Facades\Route;
 
 //quando escrevo /home na URL, vai para HomeController função index
 Route::get("/", [HomeController::class, "index" ]);
+
+
+Route::get("/users", [AdminController::class, "user" ]);
+
+
 Route::get("/redirects", [HomeController::class, "redirects" ]);
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
