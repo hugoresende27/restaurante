@@ -49,3 +49,7 @@
 21. Criar rota /uploadfood (atenção Route::post("/uploadfood" em vez do usual Route::get)
 21. Criar em AdminController function uploadfood() // use App\Models\Food;
 - ////////////////////////////////////////////
+22. Alterar Menu
+- mudar function index em HomeController.php para {$data = food::all();return view ("home", compact("data"));}
+- em foodblade @foreach ($data as $data) // {{$data->price}} etc
+- ///////////////////////////////////////////

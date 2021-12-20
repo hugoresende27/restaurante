@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+//================================================================================
+Route::get("/home", [HomeController::class, "index" ]);
 
 //quando escrevo /home na URL, vai para HomeController função index
 //================================================================================
