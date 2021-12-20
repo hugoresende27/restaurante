@@ -5,7 +5,7 @@
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
-
+        VERSÂO BETA
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
