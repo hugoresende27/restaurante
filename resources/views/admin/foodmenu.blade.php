@@ -11,11 +11,19 @@
   <div class="container-scroller">
     @include("admin.navbar")
 
-    <div style="position: relative; top:60px; right: -150px">
-        <form action="" method="" enctype="" class="p-5">
+    <div style="position: relative; top:60px; right: -150px;">
+        <form action="{{url('/uploadfood')}}" method="post" enctype="multipart/form-data" class="p-5">
 
         @csrf 
         <!-- para inserir enctype na DB (imagens) -->
+        <style>
+            input#file{
+                color:white;
+            }
+            input{
+                color:black;
+            }
+        </style>
 
             <div class="p-3">
                 <label>Title</label>
@@ -27,7 +35,7 @@
             </div>
             <div class="p-3">
                 <label>Image</label>
-                <input type="file" name="image"  required>
+                <input type="file" name="image" id="file" required>
             </div>
             <div class="p-3"> 
                 <label>Description</label>

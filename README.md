@@ -44,4 +44,8 @@
 - /////////////////////////////////////////////
 18. Em admin, navbar.blade.php href="{{url('/foodmenu')}
 19. Criar rota /foodmenu e função e AdminController  public function foodmenu(){return view("admin.foodmenu")};
-20. Criar em resources/views/admin foodmenu.blade.php e criar o form de input de menu
+20. Criar em resources/views/admin foodmenu.blade.php e criar o form de input de menu 
+- form action="{{url('\uploadfood'}}" method="post" enctype="multipart/form-data"
+21. Criar rota /uploadfood (atenção Route::post("/uploadfood" em vez do usual Route::get)
+21. Criar em AdminController function uploadfood() // use App\Models\Food;
+- ////////////////////////////////////////////
