@@ -4,8 +4,8 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="section-heading">
-                        <h6>Our Menu</h6>
-                        <h2>Our selection of cakes with quality taste</h2>
+                        <h6>Os nossos pratos</h6>
+                        <h2>A nossa seleção de sobremesas</h2>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                               <h1 class='title'>{{$data->title}}</h1>
                               <p class='description'>{{$data->description}}</p>
                               <div class="main-text-button">
-                                  <div class="scroll-to-section"><a href="#reservation">Make Reservation <i class="fa fa-angle-down"></i></a></div>
+                                  <div class="scroll-to-section"><a href="#reservation">Faça uma reserva <i class="fa fa-angle-down"></i></a></div>
                               </div>
                             </div>
                         </div>

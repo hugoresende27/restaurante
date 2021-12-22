@@ -71,4 +71,18 @@
 - criar função em AdminController public function update($id,Request $request){
 - /////////////////////////////////////////////////////////////////////////
 26. Reservar uma mesa
-- em home.blade.php
+- em home.blade.php cortar Reservation Us Area
+- criar novo reservation.blade.php
+- em home.blade.php : @include("reservation")
+- no form de reservation.blade @csrf para ligar a DB
+- cmd php artisan make:model Reservation -m (-m para migration da DB)
+- adicionar na função up() em database/migrations/create_reservation_table.php os campos da tabela: $table->string('name')->nullable();
+- cmd php artisan migrate
+- em form action="{{url('reservation')}}"
+- adicionar route na web : Route::post("/reservation", [AdminController::class, "reservation" ]);
+- adicionar função reservation no AdminController (não esquecer use App\Models\Reservation;)
+- criar a blade adminreservation.blade.php na pasta admin
+- na navbar.blade.php colocar o link href="{{url('/viewreservation')}}
+- criar rota na web : Route::get("/viewreservation", [AdminController::class, "viewreservation" ]);
+- no Models\AdminController.php criar a função viewreservation(){
+- em adminreservation inserir em html a tabela com os dados das reservas
