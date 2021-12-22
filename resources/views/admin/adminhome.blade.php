@@ -2,7 +2,7 @@
 
 </x-app-layout>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
   @include("admin.admincss")
 </head>

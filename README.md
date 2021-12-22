@@ -1,7 +1,7 @@
 # restaurante
 - https://www.youtube.com/playlist?list=PLm8sgxwSZofcOCoxwggBQ8FwPSoQUI_So
 
-1. ////////////////////////////////////////////////////////
+- /////////////////////////////////////////////////////////////////////////
 - composer create-project laravel/laravel example-app
 - cd example-app
 - php artisan serve
@@ -18,7 +18,7 @@
     function index(){
             return view ("home");
         }
-- ////////////////////////////////////////////////////////
+- /////////////////////////////////////////////////////////////////////////
 6. CRIAR SISTEMA DE LOGIN E REGISTO (cmd)
     1. composer require laravel/jetstream
     2. php artisan jetstream:install livewire (Jetstream para implementação de login)
@@ -29,7 +29,7 @@
     6. app/Providers/RouteServiceProvider.php public const HOME = '/';
     7. Em routes/web.php Route::get("/", [HomeController::class, "index" ]) e remover Route com return 'welcome';
 
-- /////////////////////////////////////
+- /////////////////////////////////////////////////////////////////////////
 7. adicionar admin com usertype = 1
 8. Em routeServicePorvider.php : public const HOME = 'redirects'; 
 9. Em routes/web.php : Route::get("/redirects", [HomeController::class, "redirects" ]);
@@ -41,15 +41,34 @@
 15. Criar food.blade.php com o menu e depois em home.blade.php  @include("food")
 16. php artisan make:model Food -m (-m de migrate para Created Migration: 2021_12_20_185742_create_food_table )
 17. php artisan migrate para actualizar BD em phpmyadmin com tabela food
-- /////////////////////////////////////////////
+- /////////////////////////////////////////////////////////////////////////
 18. Em admin, navbar.blade.php href="{{url('/foodmenu')}
 19. Criar rota /foodmenu e função e AdminController  public function foodmenu(){return view("admin.foodmenu")};
 20. Criar em resources/views/admin foodmenu.blade.php e criar o form de input de menu 
 - form action="{{url('\uploadfood'}}" method="post" enctype="multipart/form-data"
 21. Criar rota /uploadfood (atenção Route::post("/uploadfood" em vez do usual Route::get)
 21. Criar em AdminController function uploadfood() // use App\Models\Food;
-- ////////////////////////////////////////////
+- /////////////////////////////////////////////////////////////////////////
 22. Alterar Menu
 - mudar function index em HomeController.php para {$data = food::all();return view ("home", compact("data"));}
 - em foodblade @foreach ($data as $data) // {{$data->price}} etc
-- ///////////////////////////////////////////
+- /////////////////////////////////////////////////////////////////////////
+23. Criar tabela de foods em foodmenu no accesso de admin
+24. Não esquecendo que foodmenu tem o controlador em AdminController
+- adicionar o controlador foodmenu em AdminController  $dados = food::all(); //food para tabela food na BD e compact("dados"));
+- foreach na tabela de foods com os $dados as $data->title
+- adicionar mais uma coluna action na tabela com um botão delete href="{{url('/deletemenu',$data->id}}
+- adicionar rota em routes/web.php Route::get("/deletemenu/{id}", [AdminController::class, "deletemenu" ]);
+- em AdminController adicionar public function deletemenu($id)
+- /////////////////////////////////////////////////////////////////////////
+25. Ainda na tabela de foodmenu em admin, adicionar coluna com botão href="{{url('/updateview'
+- criar rota em web.php
+- criar a funcao updateview em AdminController, que vai ter return para updateview.blade.php
+- criar pagina updateview.blade.php (base href="/public" para importar css) 
+- pagina updateview leva o mesmo form de foodmenu com algumas diferenças, mudar os placeholder's por values={{$data->title}}
+- mudar form action="{{url('/update',$data->id)}}"
+- criar rota em web.php Route::post("/update/{id}", [AdminController::class, "update" ]);
+- criar função em AdminController public function update($id,Request $request){
+- /////////////////////////////////////////////////////////////////////////
+26. Reservar uma mesa
+- em home.blade.php

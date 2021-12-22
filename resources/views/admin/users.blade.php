@@ -2,7 +2,7 @@
 
 </x-app-layout>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
   @include("admin.admincss")
 </head>
@@ -12,13 +12,13 @@
         @include("admin.navbar")
 
         <div style="position: relative; top: 60px; right:-150px">
-            <table bgcolor="grey" border = "3px">
+            <table class="table table-striped" style="background-color:white;">
 
-                <tr>
+                <tr class="text-center">
                     
-                    <th style="padding:30px">Name</th>
-                    <th style="padding:30px">Email</th>
-                    <th style="padding:30px">Action</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Action</th>
                     
                 </tr>
                 @foreach($dados as $dados)
@@ -26,7 +26,10 @@
                     <td>{{$dados->name}}</td>
                     <td>{{$dados->email}}</td>
                     @if($dados->usertype == "0")
-                    <td><a href="{{url('/deleteuser', $dados->id)}}">Delete</a></td>
+                   
+                    <td>
+                        <a class="btn btn-danger" onclick="return confirm('Delete! Confirm?')" href="{{url('/deleteuser', $dados->id)}}">Delete</a>
+                    </td>
                     @else
                     <td><a>----</a></td>
 
