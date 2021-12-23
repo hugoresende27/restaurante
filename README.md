@@ -101,3 +101,8 @@
 - cmd php artisan make:model Foodchef -m (-m para migration da DB)
 - em database/migrations/create_foodchefs adicionar na função up os campos da tabela $table->string("speciality")->nullable();
 - cmd php artisan migrate para criar a tabela foodchefs na DB
+- criar um form em adminchef.blade action="{{url('/uploadchef')}}" method="POST" enctype="multipart/form-data" @csrf
+- adicionar rota na web Route::post("/uploadchef", [AdminController::class, "uploadchef" ]);
+- em AdminController function uploadchef()
+- na pasta public criar uma pasta chefimage
+- /////////////////////////////////////////////////////////////////////////
