@@ -1,6 +1,8 @@
 # restaurante
 - https://www.youtube.com/playlist?list=PLm8sgxwSZofcOCoxwggBQ8FwPSoQUI_So
 
+- //////////////////////////////////////////////////////////////
+- php artisan route:cache
 - /////////////////////////////////////////////////////////////////////////
 - composer create-project laravel/laravel example-app
 - cd example-app
@@ -72,7 +74,7 @@
 - /////////////////////////////////////////////////////////////////////////
 26. Reservar uma mesa
 - em home.blade.php cortar Reservation Us Area
-- criar novo reservation.blade.php
+- criar novo reservation.blade.php e colar Reservation Us Area
 - em home.blade.php : @include("reservation")
 - no form de reservation.blade @csrf para ligar a DB
 - cmd php artisan make:model Reservation -m (-m para migration da DB)
@@ -88,3 +90,14 @@
 - em adminreservation inserir em html a tabela com os dados das reservas
 - /////////////////////////////////////////////////////////////////////////
 27. Upload e gestão de Chefes do restaurante
+- em home.blade.php cortar Chefs Area
+- criar novo chefs.blade.php e colar Chefs Area
+- em home.blade.php : @include("chefs")
+- criar na pasta admin adminchef.blade.php
+- mudar href em navbar de admin para {{url('/viewchef')}}
+- adicionar rota na web Route::get("/viewchef", [AdminController::class, "viewchef" ]);
+- adicionar função viewchef(){ return view("admin.adminchef")} em AdminController
+- PARA ADICIONAR A TABELA NO adminchef
+- cmd php artisan make:model Foodchef -m (-m para migration da DB)
+- em database/migrations/create_foodchefs adicionar na função up os campos da tabela $table->string("speciality")->nullable();
+- cmd php artisan migrate para criar a tabela foodchefs na DB

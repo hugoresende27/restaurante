@@ -112,4 +112,10 @@ public function viewreservation(){
     $data = reservation::all();
     return view("admin.adminreservation", compact("data"));
 }
+
+//====================================================================
+public function viewchef(){
+    
+    return view("admin.adminchef");
+}
 }
