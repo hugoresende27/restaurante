@@ -86,3 +86,5 @@
 - criar rota na web : Route::get("/viewreservation", [AdminController::class, "viewreservation" ]);
 - no Models\AdminController.php criar a função viewreservation(){
 - em adminreservation inserir em html a tabela com os dados das reservas
+- /////////////////////////////////////////////////////////////////////////
+27. Upload e gestão de Chefes do restaurante
