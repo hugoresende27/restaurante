@@ -3,6 +3,7 @@
 
 - //////////////////////////////////////////////////////////////
 - php artisan route:cache
+- css problems base href="/public"
 - /////////////////////////////////////////////////////////////////////////
 - composer create-project laravel/laravel example-app
 - cd example-app
@@ -108,3 +109,10 @@
 - em HomeController adicionar $data2 na função index()
 - em chefs.blade.php adicionar o @foreach($data2 as $data2) e {{$data2->name}} para aceder ao chefs da DB
 - /////////////////////////////////////////////////////////////////////////
+28. Adicionar tabela de chefs no painel admin, chefs.blade.php
+- colar a tabela em chefs.blade.php
+- na função viewchef() em AdminController adicionar : $data = Foodchef::all(); e compact("data")
+- botão update na tabela em adminchef href="{{url('/updatechef',$data->id)}}
+- adicionar rota na web Route::get("/updatechef/{id}", [AdminController::class, "updatechef" ]);
+- adicionar function updatechef em AdminController
+- criar na pasta admin o ficheiro updatechef.balde.php

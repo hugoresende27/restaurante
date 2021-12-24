@@ -3,6 +3,12 @@
 </x-app-layout>
 <!DOCTYPE html>
 <html lang="pt">
+<style> 
+        img#imgCust{
+            width: 150px;
+            height: 150px;
+        }
+    </style>
 <head>
   @include("admin.admincss")
 </head>
@@ -49,14 +55,22 @@
 
     <table class="table" style="background-color:white;">
             <tr class="text-center">
-                <th>Food Name</th>
-                <th>Price</th>
-                <th>Description</th>
+                <th>Nome do Chefe</th>
+                <th>Especialidade</th>
                 <th>Image</th>
                 <th>Action</th>
-                <th>Action2</th>
             </tr>
 
+        @foreach($data as $data)
+
+            <tr class="text-center">
+                <td>{{$data->name}}</td>
+                <td>{{$data->speciality}}</td>
+                <td><img id="imgCust" src="/chefimage/{{$data->image}}" alt=""></td>
+                <td><a href="{{url('/updatechef',$data->id)}}">Update</a></td>
+            </tr>
+        
+        @endforeach
           
 
         </table>

@@ -117,7 +117,9 @@ public function viewreservation(){
 //====================================================================
 public function viewchef(){
     
-    return view("admin.adminchef");
+    $data = Foodchef::all();
+
+    return view("admin.adminchef", compact("data"));
 }
 
 //====================================================================
@@ -138,5 +140,13 @@ public function uploadchef(Request $request){
 
             $data->save();
             return redirect()->back();
+}
+
+//====================================================================
+public function updatechef($id){
+
+    $data = foodchef::find($id);
+    
+    return view("admin.updatechef", compact("data"));
 }
 }
