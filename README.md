@@ -115,4 +115,11 @@
 - botão update na tabela em adminchef href="{{url('/updatechef',$data->id)}}
 - adicionar rota na web Route::get("/updatechef/{id}", [AdminController::class, "updatechef" ]);
 - adicionar function updatechef em AdminController
-- criar na pasta admin o ficheiro updatechef.balde.php
+- criar na pasta admin o ficheiro updatechef.blade.php
+- na blade updatechef criar o form action="{{url('/updatefoodchef',$data->id)}}"
+- na web criar a rota Route::post("/updatefoodchef/{id}", [AdminController::class, "updatefoodchef" ]);
+- criar botão DELETE em adminchef href="{{url('/deletechef',$data->id)}}
+- criar rota na web para deletechef Route::get("/deletechef/{id}", [AdminController::class, "deletechef" ]);
+- criar função no AdminController public function deletechef($id)
+- //////////////////////////////////////////////////////////////////////////
+29. Adicionar produtos ao carrinho

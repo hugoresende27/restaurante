@@ -42,12 +42,11 @@
                 <label>Description</label>
                 <input type="text" name="description" value="{{$data->description}}" required>
             </div>
-            <div class="p-3" style=" height: 350px; width: 350px;">
+            <div class="p-3" style=" height: 150px; width: 150px;">
                 <label>Old Image</label>
                 <img src="/foodimage/{{$data->image}}" alt="Falhou">
-                <input type="file" name="image" id="file" required>
-            </div>
-            <div>
+                <input type="file" name="image" id="file" >
+            
                 <input type="submit" value="Save" class="btn btn-primary">
             </div>
         </form>

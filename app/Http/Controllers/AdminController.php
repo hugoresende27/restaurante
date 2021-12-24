@@ -34,13 +34,13 @@ class AdminController extends Controller
         $data = food::find($id);
 
         $image = $request->image;
-
+        if ($image){//if para apenas executar esta parte se existir imagem
         $imagename=time().'.'.$image->getClientOriginalExtension();
 
             $request->image->move('foodimage',$imagename);
 
             $data->image = $imagename;
-
+        }
             $data->title=$request->title;
             $data->price=$request->price;
             $data->description=$request->description;
@@ -54,13 +54,13 @@ class AdminController extends Controller
         
         $dados = new food;
         $image = $request->image;
-
+ 
         $imagename=time().'.'.$image->getClientOriginalExtension();
 
             $request->image->move('foodimage',$imagename);
 
             $dados->image = $imagename;
-
+        
             $dados->title=$request->title;
             $dados->price=$request->price;
             $dados->description=$request->description;
@@ -145,8 +145,40 @@ public function uploadchef(Request $request){
 //====================================================================
 public function updatechef($id){
 
-    $data = foodchef::find($id);
-    
+    $data = Foodchef::find($id);
+
     return view("admin.updatechef", compact("data"));
+}
+
+//====================================================================
+public function updatefoodchef($id, Request $request){
+
+    $data = foodchef::find($id);
+
+    $image=$request->image;//request da imagem
+
+    if ($image){//if para apenas executar esta parte se existir imagem
+        $imagename=time().'.'.$image->getClientOriginalExtension();//gera nome random para imagem
+
+        $request->image->move('chefimage',$imagename);
+
+        $data->image = $imagename;
+    }
+
+        $data->name =$request-> name;
+        $data->speciality =$request-> speciality;
+
+            $data->save();
+
+            return redirect()->back();
+
+   
+}
+
+//====================================================================
+public function deletechef($id){
+    $dados = foodchef::find($id);
+    $dados->delete();
+    return redirect()->back();
 }
 }

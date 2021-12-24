@@ -76,7 +76,7 @@
                 <a class="btn btn-danger" onclick="return confirm('Delete! Confirm?')" href="{{url('/deletemenu',$data->id)}}">Delete</a>
                 </td>
                 <td>
-                <a class="btn btn-primary" onclick="return confirm('Update! Confirm?')" href="{{url('/updateview',$data->id)}}">Update</a>
+                <a class="btn btn-primary" href="{{url('/updateview',$data->id)}}">Update</a>
                 </td>
             </tr>
             @endforeach

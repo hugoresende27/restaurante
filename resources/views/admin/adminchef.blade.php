@@ -59,6 +59,7 @@
                 <th>Especialidade</th>
                 <th>Image</th>
                 <th>Action</th>
+                <th>DELETE</th>
             </tr>
 
         @foreach($data as $data)
@@ -67,7 +68,10 @@
                 <td>{{$data->name}}</td>
                 <td>{{$data->speciality}}</td>
                 <td><img id="imgCust" src="/chefimage/{{$data->image}}" alt=""></td>
-                <td><a href="{{url('/updatechef',$data->id)}}">Update</a></td>
+                <td><a class="btn btn-primary" href="{{url('/updatechef',$data->id)}}">Update</a></td>
+                <td>
+                <a class="btn btn-danger" onclick="return confirm('Delete! Confirm?')" href="{{url('/deletechef',$data->id)}}">Delete</a>
+                </td>
             </tr>
         
         @endforeach
