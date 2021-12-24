@@ -136,3 +136,4 @@
 - adicionar o carrinho[0] na home.blade
 - na função redirects adicionar $count=card::where('user_id',$user_id)->count(); para contar items e atualizar Carrinho[{{$count}}]
 - colocar condição if para o caso de não haver login   @authCarrinho[{{$count}}]@endauth@guestCarrinho[0]@endguest
+- //////////////////////////////////////////////////////////////////////////

@@ -1,11 +1,14 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <a href="{{url('/home')}}">
+                <img src="{{asset('/Source')}}/logoHR.png" alt="logo" width="100" height="100">
+            </a>
+            <!-- <x-jet-authentication-card-logo /> -->
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
-        VERSÂO BETA
+        VERSÃO BETA 1.0
         <form method="POST" action="{{ route('register') }}">
             @csrf
 

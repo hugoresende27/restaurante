@@ -88,6 +88,9 @@ https://templatemo.com/tm-558-klassy-cafe
                                 
                                 @auth 
 
+                                <?php
+                                    if (!isset($count)){ $count = 99;}
+                                ?>
                                 Carrinho[{{$count}}]
 
                                 @endauth

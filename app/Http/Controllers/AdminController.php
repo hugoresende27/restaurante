@@ -9,8 +9,21 @@ use App\Models\Food;
 use App\Models\Reservation;
 use App\Models\Foodchef;
 
-class AdminController extends Controller
-{
+class AdminController extends Controller{
+
+//====================================================================
+//     public function index(){
+        
+//     $data = food::all();
+
+//     $data2 = Foodchef::all();
+
+//     $count = 99;
+
+//     return view ("home", compact("data","data2","count"));
+// }
+
+
     public function user(){
         $dados = user::all();
         return view("admin.users", compact("dados"));
