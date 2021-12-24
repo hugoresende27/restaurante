@@ -123,3 +123,16 @@
 - criar função no AdminController public function deletechef($id)
 - //////////////////////////////////////////////////////////////////////////
 29. Adicionar produtos ao carrinho
+- na food.blade adicionar inputs de number e submit com value adicionar ao cesto
+- colocar div dos items dentro de um form action="{{url('/addcard')}}"
+- adicionar rota na web Route::post("/addcard", [HomeController::class, "addcard" ]);
+- criar a função addcard() no HomeController
+- para verificar se user está logado no momento do submit addcard if(Auth::id())
+- cmd criar model php artisan make:model Card -m
+- na pasta database, alterar o create_cards_table adicionar campos da tabela cards
+- cmd php artisan migrate
+- adicionar no form /{id} e tbm na rota web /{id}
+- adicionar na função addcard o user_id, food_id e qtd
+- adicionar o carrinho[0] na home.blade
+- na função redirects adicionar $count=card::where('user_id',$user_id)->count(); para contar items e atualizar Carrinho[{{$count}}]
+- colocar condição if para o caso de não haver login   @authCarrinho[{{$count}}]@endauth@guestCarrinho[0]@endguest
