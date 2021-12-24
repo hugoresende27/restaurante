@@ -16,11 +16,12 @@
         </style>
   <body>
     
-  <div class="container-scroller">
-
+  <div class="container-scroller overflow-auto" style="padding-bottom:50px;" >
     @include("admin.navbar")
 
-    <form action="{{url('/uploadchef')}}" method="POST" enctype="multipart/form-data">
+    <div >
+
+    <form action="{{url('/uploadchef')}}" method="POST" enctype="multipart/form-data" class="p-5">
 
         @csrf
 
@@ -46,10 +47,35 @@
 
     </form>
 
+    <table class="table" style="background-color:white;">
+            <tr class="text-center">
+                <th>Food Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Action</th>
+                <th>Action2</th>
+            </tr>
+
+          
+
+        </table>
+
+
+
+
+
+
+
+
+
+    </div>
+  
+
   </div>
   
     @include("admin.adminscript")
-    
+   
   </body>
   
 </html>

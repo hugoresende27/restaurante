@@ -124,6 +124,7 @@ public function viewchef(){
 public function uploadchef(Request $request){
     
     $data = new foodchef;
+    
 
     $image=$request->image;//gera nome random para imagem
     $imagename=time().'.'.$image->getClientOriginalExtension();

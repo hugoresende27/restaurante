@@ -105,4 +105,6 @@
 - adicionar rota na web Route::post("/uploadchef", [AdminController::class, "uploadchef" ]);
 - em AdminController function uploadchef()
 - na pasta public criar uma pasta chefimage
+- em HomeController adicionar $data2 na função index()
+- em chefs.blade.php adicionar o @foreach($data2 as $data2) e {{$data2->name}} para aceder ao chefs da DB
 - /////////////////////////////////////////////////////////////////////////
