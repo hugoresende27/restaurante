@@ -84,14 +84,18 @@ https://templatemo.com/tm-558-klassy-cafe
                             </li>
                             <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
                             <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li> 
-                            <li class="scroll-to-section"><a href="#reservation">
+                            <li class="scroll-to-section">
                                 
                                 @auth 
 
-                                <?php
-                                    if (!isset($count)){ $count = 99;}
-                                ?>
-                                Carrinho[{{$count}}]
+                                <a href="{{url('/showcard',Auth::user()->id)}}">
+
+                                    <?php
+                                        //if (!isset($count)){ $count = "XX";}
+                                    ?>
+                                    Carrinho[{{$count}}]
+
+                                </a>
 
                                 @endauth
 
@@ -497,34 +501,32 @@ https://templatemo.com/tm-558-klassy-cafe
     <!-- ***** Chefs Area Ends ***** --> 
     
     <!-- ***** Footer Start ***** -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-xs-12">
-                    <div class="right-text-content">
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="logo">
-                        <a href="index.html"><img src="assets/images/white-logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-xs-12">
-                    <div class="left-text-content">
-                        <p>© Copyright Klassy Cafe Co.
-                        
-                        <br>Design: TemplateMo</p>
-                    </div>
-                </div>
-            </div>
+
+    <div class="container-fluid">
+    <div class="row ">
+        <div class="col-12 text-center p-3 navbar" style="background-color: orange;"><!--fixed-bottom rodapé sempre no fundo -->
+
+            Empresa &copy; 
+            <span class="ml-3 mr-3"> | <span class="ml-3 mr-3">
+                <a href="mailto:hugoresende27@gmail.com" class="link-email">hugoresende27@empresa.com</a>
+            <span class="ml-3 mr-3"> | <span class="ml-3 mr-3">
+                <a href="https://hugoresende27.github.io/portfolio/" target="_blank"><i class="fa fa-folder fa-2x" aria-hidden="true"></i></a>
+            
+            <a href="https://www.twitter.com" target="_blank" class="ml-4"><i class="fa fa-twitter-square fa-2x"></i></a>
+            
+            <a href="https://www.instagram.com" target="_blank" class="ml-4"><i class="fa fa-instagram fa-2x"></i></a>&nbsp;
+            
+            <?php   echo date('d-m-Y') ;//conteudo dinâmico, ano ('Y')
+                    echo '&nbsp&nbsp Horas: '; 
+                    echo date ('H:i:s') ;//Hora minutos e segundos
+            ?> 
+
+        
         </div>
-    </footer>
+    </div>
+</div>
+    
+
 
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>

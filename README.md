@@ -137,3 +137,18 @@
 - na função redirects adicionar $count=card::where('user_id',$user_id)->count(); para contar items e atualizar Carrinho[{{$count}}]
 - colocar condição if para o caso de não haver login   @authCarrinho[{{$count}}]@endauth@guestCarrinho[0]@endguest
 - //////////////////////////////////////////////////////////////////////////
+30. Mostrar dados do carrinho na home.blade
+- criar tag do link  href="{{url('/showcard',Auth::user()->id}}"
+- criar rota na web Route::get("/showcard/{id}", [HomeController::class, "showcard" ]);
+- criar function showcard() em HomeController com return view showcard
+- criar a blade showcard.blade.php nas views
+- adicionar o count na função showcard
+- criar tabela com lista do carrinho em showcard.blade.php
+- na função showcard em HomeController adicionar $data = card::where('user_id',$id)->join('food', 'cards.food_id', '=', 'food.id')->get();
+- //////////////////////////////////////////////////////////////////////////
+31. Remover items do carrinho
+- Como existe um join das tabelas food e cards, preciso de adicionar um data2 na função do HomeController
+    - $data2=card::select('*')->where('user_id','=', $id)->get();
+- adicionar na tabela href="{{url('/remove',$data2->id)}}
+- adicionar rota na web Route::get("/remove/{id}", [HomeController::class, "remove" ]);
+- adicionar function remove() em HomeController

@@ -11,17 +11,7 @@ use App\Models\Foodchef;
 
 class AdminController extends Controller{
 
-//====================================================================
-//     public function index(){
-        
-//     $data = food::all();
 
-//     $data2 = Foodchef::all();
-
-//     $count = 99;
-
-//     return view ("home", compact("data","data2","count"));
-// }
 
 
     public function user(){

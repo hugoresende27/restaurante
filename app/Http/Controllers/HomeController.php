@@ -19,7 +19,11 @@ class HomeController extends Controller
 
         $data2 = Foodchef::all();
 
-        return view ("home", compact("data","data2"));
+        $user_id=Auth::id();
+
+        $count=card::where('user_id',$user_id)->count();
+
+        return view ("home", compact("data","data2","count"));
     }
 
 //====================================================================
@@ -66,12 +70,31 @@ class HomeController extends Controller
 
             $card->save();
 
-            dd($user_id);
+            //dd($user_id);
 
             return redirect()->back();
         } else {
             return redirect('/login');
         }
     }
+//====================================================================
 
+    public function showcard(Request $request, $id){
+
+        $count=card::where('user_id',$id)->count();
+
+        $data2=card::select('*')->where('user_id','=', $id)->get();
+
+        $data = card::where('user_id',$id)->join('food', 'cards.food_id', '=', 'food.id')->get();
+
+        return view ('showcard',compact ("count","data","data2"));
+    }
+
+//====================================================================
+
+    public function remove( $id){
+        $dados = card::find($id);
+        $dados->delete();
+        return redirect()->back();
+    }
 }

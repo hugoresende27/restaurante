@@ -1,6 +1,6 @@
 <style>
     input[type=number]{
-        width: 80px;
+        width: 50px;
     }
     input[type=number]:focus{
         background-color: grey;
@@ -33,7 +33,7 @@
 
                     <div class="item">
                         <div style = "background-image: url('/foodimage/{{$data->image}}')"class='card'>
-                            <div class="price"><h6>{{$data->price}}</h6></div>
+                            <div class="price"><h6>{{$data->price}} €</h6></div>
                             <div class='info'>
                               <h1 class='title'>{{$data->title}}</h1>
                               <p class='description'>{{$data->description}}</p>
