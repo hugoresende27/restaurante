@@ -113,7 +113,7 @@ class HomeController extends Controller
 
             $data->name=$request->name;
             $data->address=$request->address;
-            $data->phone=$request->phone;
+            $data->phone=$request->tel;
 
             $data->save();
 

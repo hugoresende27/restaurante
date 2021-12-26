@@ -169,3 +169,8 @@
 - em Models/Order.php adicionar protected $fillable igual ao que está em User mas atualizar os campos da BD
 - //////////////////////////////////////////////////////////////////////////
 34. Mostrar dados da tabela orders no painel Admin
+- no painel navbar.blade na pasta admin criar o li Encomendas com o href {{url('/orders')}}
+- criar rota na web Route::get("/orders", [AdminController::class, "orders" ]);
+- criar função public function orders() em AdminController
+- na pasta admin criar a blade orders.blade.php
+- adicionar no AdminController use App\Models\Order; para usar o  $data
