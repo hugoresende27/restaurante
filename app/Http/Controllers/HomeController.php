@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Food;
 use App\Models\Foodchef;
 use App\Models\Card;
+use App\Models\Order;
 
 class HomeController extends Controller
 {
@@ -95,6 +96,29 @@ class HomeController extends Controller
     public function remove( $id){
         $dados = card::find($id);
         $dados->delete();
+        return redirect()->back();
+    }
+
+//====================================================================
+
+    public function orderconfirm(Request $request){
+
+        foreach($request->foodname as $key => $foodname){
+
+            $data = new order;
+
+            $data->foodname=$foodname;
+            $data->price=$request->price[$key];
+            $data->qtd=$request->qtd[$key];
+
+            $data->name=$request->name;
+            $data->address=$request->address;
+            $data->phone=$request->phone;
+
+            $data->save();
+
+            
+        }
         return redirect()->back();
     }
 }

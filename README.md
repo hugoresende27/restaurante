@@ -161,3 +161,11 @@
 - //////////////////////////////////////////////////////////////////////////
 33. Adicionar encomendas do carrinho a uma tabela nova Order
 - cmd php artisan make:model Order -m
+- em database/migrations em create_orders_table adicionar campos da tabela
+- cmd php artisan migrate para criar a tabela na db
+- adicionar form no showcard.blade action="{{url('orderconfirm')}}" method="POST" @csrf
+- adicionar rota na web Route::post("/orderconfirm", [HomeController::class, "orderconfirm" ]);
+- no HomeController criar a função orderconfirm(Request $request)
+- em Models/Order.php adicionar protected $fillable igual ao que está em User mas atualizar os campos da BD
+- //////////////////////////////////////////////////////////////////////////
+34. Mostrar dados da tabela orders no painel Admin

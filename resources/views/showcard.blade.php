@@ -9,15 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
- 
-    input[type=submit]:focus{
-        background-color: grey;
-    }
 
-
-    </style>
 
     <title>HR Restaurante Systems</title>
 <!--
@@ -160,15 +152,28 @@ https://templatemo.com/tm-558-klassy-cafe
                     <th style="padding: 30px">Nome do prato</th>
                     <th style="padding: 30px">Preço</th>
                     <th style="padding: 30px">Quantidade</th>
+                    <!-- <th style="padding: 30px">Ação</th> -->
                 </tr>
+
+        <form action="{{url('orderconfirm')}}" method="POST">
+            @csrf
 
             @foreach($data as $data)
 
                 <tr>
 
-                    <td style="padding: 10px">{{$data->title}}</td>
-                    <td style="padding: 10px">{{$data->price}}</td>
-                    <td style="padding: 10px">{{$data->qtd}}</td>
+                    <td>
+                        <input type="text" name="foodname[]" value="{{$data->title}}" hidden="">
+                        {{$data->title}}
+                    </td>
+                    <td>
+                        <input type="text" name="price[]" value=" {{$data->price}}" hidden="">
+                        {{$data->price}}
+                    </td>
+                    <td>
+                        <input type="text" name="qtd[]" value=" {{$data->qtd}}" hidden="">
+                        {{$data->qtd}}
+                    </td>
                     
 
                 </tr>
@@ -191,7 +196,7 @@ https://templatemo.com/tm-558-klassy-cafe
 
         <div align="center" style="padding: 10px">
 
-            <button class="btn btn-primary" id="order">Encomendar agora</button>
+            <button class="btn btn-primary" id="order" type="button">Encomendar agora</button>
 
         </div>
 
@@ -201,9 +206,9 @@ https://templatemo.com/tm-558-klassy-cafe
         [type='button'],
         [type='reset'],
         [type='submit'] {
-        -webkit-appearance: button; /* 1 */
-         background-color:lightgreen; 
-        background-image: none; /* 2 */
+        -webkit-appearance: button; 
+         background-color:auto; 
+        background-image: none; 
         color: black;
         }
 
@@ -224,10 +229,12 @@ https://templatemo.com/tm-558-klassy-cafe
                 
                 <input type="submit" value="Confirmar Encomenda" class="btn btn-success"  >
 
-                <button class="btn btn-danger" id="close">Fechar</button>
+                <button class="btn btn-danger" id="close" type="button">Fechar</button>
             </div>
 
     </div>
+
+    </form>
 
     </div>
       
