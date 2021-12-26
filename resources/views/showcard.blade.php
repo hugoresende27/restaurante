@@ -10,6 +10,15 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
     
+    <style>
+ 
+    input[type=submit]:focus{
+        background-color: grey;
+    }
+
+
+    </style>
+
     <title>HR Restaurante Systems</title>
 <!--
     
@@ -28,6 +37,8 @@ https://templatemo.com/tm-558-klassy-cafe
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
 
     <link rel="stylesheet" href="assets/css/lightbox.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
     </head>
@@ -166,7 +177,7 @@ https://templatemo.com/tm-558-klassy-cafe
 
             @foreach($data2 as $data2)
 
-            <tr  style="position: relative; top:-170px; right:-320px;">
+            <tr  style="position: relative; top:-70px; right:-320px;">
 
                 <td>
                     <a class="btn btn-danger" onclick="return confirm('Delete! Confirm?')" href="{{url('/remove',$data2->id)}}">Remover</a>
@@ -177,6 +188,47 @@ https://templatemo.com/tm-558-klassy-cafe
             @endforeach
 
         </table>
+
+        <div align="center" style="padding: 10px">
+
+            <button class="btn btn-primary" id="order">Encomendar agora</button>
+
+        </div>
+
+    <div id="apear" align ="center" style="padding:10px ; display:none;">
+    <style>
+        button,
+        [type='button'],
+        [type='reset'],
+        [type='submit'] {
+        -webkit-appearance: button; /* 1 */
+         background-color:lightgreen; 
+        background-image: none; /* 2 */
+        color: black;
+        }
+
+    </style>
+            <div style="padding:10px">
+                <label>Nome</label>
+                <input type="text" name="name" placeholder="Nome">
+            </div>
+            <div style="padding:10px">
+                <label>Telefone</label>
+                <input type="text" name="tel" placeholder="Telefone">
+            </div>
+            <div style="padding:10px">
+                <label>Morada</label>
+                <input type="text" name="address" placeholder="Morada">
+            </div>
+            <div style="padding:10px">
+                
+                <input type="submit" value="Confirmar Encomenda" class="btn btn-success"  >
+
+                <button class="btn btn-danger" id="close">Fechar</button>
+            </div>
+
+    </div>
+
     </div>
       
     <!-- ***** Footer Start ***** -->
@@ -204,6 +256,26 @@ https://templatemo.com/tm-558-klassy-cafe
         </div>
     </div>
 </div>
+
+        <script type="text/javascript">
+
+            $("#order").click(
+                function (){
+                    $("#apear").show();
+                }
+
+
+            );
+            $("#close").click(
+                function (){
+                    $("#apear").hide();
+                }
+
+
+            );
+
+
+        </script>
     
  
 

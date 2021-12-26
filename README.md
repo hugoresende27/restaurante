@@ -152,3 +152,12 @@
 - adicionar na tabela href="{{url('/remove',$data2->id)}}
 - adicionar rota na web Route::get("/remove/{id}", [HomeController::class, "remove" ]);
 - adicionar function remove() em HomeController
+- //////////////////////////////////////////////////////////////////////////
+32. Adicionar dados num form na blade showcard com a tabela do carrinho
+- adicionar botão encomendar agora no showcard blade
+- https://www.w3schools.com/jquery/jquery_get_started.asp para adicionar o jQuery
+- adicionar id="order" no botão e id="apear" e criar botão id="close"
+- adicionar as funções jQuery num script no fundo de showcard.blade
+- //////////////////////////////////////////////////////////////////////////
+33. Adicionar encomendas do carrinho a uma tabela nova Order
+- cmd php artisan make:model Order -m
