@@ -15,7 +15,11 @@ class HomeController extends Controller
 {
 //====================================================================
     public function index(){
-        
+
+        if (Auth::id()){
+            return redirect('redirects');
+        }
+        else 
         $data = food::all();
 
         $data2 = Foodchef::all();
@@ -82,13 +86,19 @@ class HomeController extends Controller
 
     public function showcard(Request $request, $id){
 
-        $count=card::where('user_id',$id)->count();
+        if (Auth::id()==$id){ //para prevenir q alguém mude no URL o {id}, se mudarem volta à mesma página
 
-        $data2=card::select('*')->where('user_id','=', $id)->get();
+            $count=card::where('user_id',$id)->count();
 
-        $data = card::where('user_id',$id)->join('food', 'cards.food_id', '=', 'food.id')->get();
+            $data2=card::select('*')->where('user_id','=', $id)->get();
 
-        return view ('showcard',compact ("count","data","data2"));
+            $data = card::where('user_id',$id)->join('food', 'cards.food_id', '=', 'food.id')->get();
+
+            return view ('showcard',compact ("count","data","data2"));
+        }
+        else {
+            return redirect()->back();
+        }
     }
 
 //====================================================================

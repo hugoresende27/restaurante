@@ -54,6 +54,13 @@ https://templatemo.com/tm-558-klassy-cafe
                         <!-- ***** Logo Start ***** -->
                         <a href="{{url('/home')}}" class="logo">
                             <img src="assets/images/klassy-logo.png" align="klassy cafe html template">
+
+                            <a class="menu-trigger">
+
+                                <span>MENU</span>
+
+                            </a>
+
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->

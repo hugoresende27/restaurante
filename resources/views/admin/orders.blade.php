@@ -12,7 +12,24 @@
         @include("admin.navbar")
 
         <div style="position: relative; top: 20px; right:-150px">
+
+     
+
         <h3>Encomendas</h3>
+
+        <form action="{{url('/search')}}" method="GET">
+
+          @csrf
+
+          <input type="text" name="search" style="color:black" class="m-3">
+
+          <input type="submit" value="Procurar" class="btn btn-success m-3">
+
+
+        </form>
+
+
+
             <table class="table table-striped" style="background-color:white;">
 
                 <tr class="text-center">
@@ -27,6 +44,7 @@
                     <th>Preço total</th>
                     
                 </tr>
+
                 @foreach($data as $dados)
                 <tr align="center" >
                     
@@ -37,16 +55,7 @@
                     <td>{{$dados->price}}€</td>
                     <td>{{$dados->qtd}}</td>
                     <td>{{$dados->price *$dados->qtd}}€</td>
-                    <!-- <td>{{$dados->email}}</td>
-                    @if($dados->usertype == "0")
-                   
-                    <td>
-                        <a class="btn btn-danger" onclick="return confirm('Delete! Confirm?')" href="{{url('/deleteuser', $dados->id)}}">Delete</a>
-                    </td>
-                    @else
-                    <td><a>----</a></td>
-
-                    @endif -->
+                
                 </tr>
 
                 @endforeach

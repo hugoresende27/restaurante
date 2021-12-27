@@ -174,3 +174,8 @@
 - criar função public function orders() em AdminController
 - na pasta admin criar a blade orders.blade.php
 - adicionar no AdminController use App\Models\Order; para usar o  $data
+- //////////////////////////////////////////////////////////////////////////
+35. Search na database
+- criar um form em orders.balde.php form action="{{url('/search)}}" method="GET" @csrf
+- criar rota na web Route::get("/search", [AdminController::class, "search" ]);
+- em AdminController criar public function search(Request $request)
