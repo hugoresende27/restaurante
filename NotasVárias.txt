@@ -1,0 +1,2 @@
+pasta vendor proveniente do composer
+dependência -- parecido a uma lib ou biblioteca. Código já feito
